@@ -57,6 +57,12 @@ namespace DBB
                 spriteBatch.Draw(dwarfTexture, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.FlipHorizontally, 0f);
         }
 
+        public Rectangle getBoundingBox()
+        {
+            return new Rectangle((int)position.X, (int)position.Y,
+                (int)dwarfTexture.Width, (int)dwarfTexture.Height);
+        }
+
 
 
         internal void moveLeft()

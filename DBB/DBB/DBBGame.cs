@@ -19,6 +19,7 @@ namespace DBB
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dwarf player1;
+        Box boxxy;
 
         KeyboardState currentKeyBoardState;
         KeyboardState previousKeyBoardState;
@@ -39,6 +40,7 @@ namespace DBB
         {
 
             player1 = new Dwarf();
+            boxxy = new Box();
 
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 1280;
@@ -62,7 +64,14 @@ namespace DBB
             GraphicsDevice.Viewport.TitleSafeArea.Y
             + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
 
+            Vector2 boxPosition = new
+                Vector2(GraphicsDevice.Viewport.TitleSafeArea.X
+                + 300,
+                GraphicsDevice.Viewport.TitleSafeArea.Y + 600);
+
+
             player1.Initialize(Content.Load<Texture2D>("small_dorf"), playerPosition);
+            boxxy.Initialize(Content.Load<Texture2D>("boxxy"), boxPosition);
 
         }
 
@@ -106,6 +115,7 @@ namespace DBB
             GraphicsDevice.Clear(Color.DarkGreen);
             spriteBatch.Begin();
             player1.Draw(spriteBatch);
+            boxxy.Draw(spriteBatch);
             spriteBatch.End();
 
 
