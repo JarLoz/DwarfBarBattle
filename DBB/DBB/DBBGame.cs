@@ -155,6 +155,12 @@ namespace DBB
                 player1.jumping = false;
                 player1.doublejumping = false;
             }
+
+            if(player1.getBoundingBox().Intersects(boxxy.getBoundingBox()))
+            {
+                player1.collideWithStaticObject(boxxy.getBoundingBox());
+            }
+            
         }
     }
 }
